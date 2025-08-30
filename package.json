@@ -29,6 +29,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@types/swagger-ui-express": "^4.1.8"
   }
 }

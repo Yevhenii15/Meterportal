@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -12,6 +11,13 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vueuse/nuxt",
   ],
+
+  fonts: {
+    families: [
+      { name: "Montserrat", provider: "google" }
+    ]
+  },
+
   runtimeConfig: {
     mongoUri: process.env.MONGO_URI,
   },
