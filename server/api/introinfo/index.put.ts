@@ -1,34 +1,34 @@
-import About from "../../models/About";
+import IntroInfo from "../../models/IntroInfo";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  const about = await About.findOneAndUpdate({}, body, {
+  const introInfo = await IntroInfo.findOneAndUpdate({}, body, {
     new: true,
     upsert: true,
   });
 
-  return about;
+  return introInfo;
 });
 
 /**
  * @openapi
- * /api/about:
+ * /api/introinfo:
  *   put:
- *     summary: Update or create the About entry
+ *     summary: Update or create the IntroInfo entry
  *     tags:
- *       - About
+ *       - IntroInfo
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/About'
+ *             $ref: '#/components/schemas/IntroInfo'
  *     responses:
  *       200:
- *         description: The updated or created About entry
+ *         description: The updated or created IntroInfo entry
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/About'
+ *               $ref: '#/components/schemas/IntroInfo'
  */

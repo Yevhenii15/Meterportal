@@ -1,16 +1,22 @@
+import About from "../../models/About";
+
+export default defineEventHandler(async () => {
+  const about = await About.findOne(); // expect only one document
+  return about;
+});
+
 /**
  * @openapi
  * /api/about:
  *   get:
- *     summary: Get all About entries
+ *     summary: Get About info
  *     tags:
- *      - About
+ *       - About
  *     responses:
  *       200:
- *         description: List of About documents
+ *         description: About entry
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/About'
  */
-import About from "../../models/About";
-
-export default defineEventHandler(async () => {
-  return await About.find();
-});
