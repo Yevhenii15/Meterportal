@@ -69,11 +69,74 @@ const options = {
               type: "string",
               example: "123 Main Street, Copenhagen, Denmark",
             },
-            WorkingTime: {
-              type: "string",
-              example: "Mon-Fri 09:00-17:00",
-            },
+            WorkingTime: { type: "string", example: "Mon-Fri 09:00-17:00" },
             VatNumber: { type: "string", example: "DK12345678" },
+          },
+        },
+        Feature: {
+          type: "object",
+          properties: {
+            Title: { type: "string", example: "Fast Delivery" },
+            ShortDescription: {
+              type: "string",
+              example: "Get your orders delivered within 24 hours",
+            },
+            MainImgUrl: {
+              type: "string",
+              example: "https://example.com/main_feature.jpg",
+            },
+            SecondTitle: { type: "string", example: "Reliable & Quick" },
+            Description: {
+              type: "string",
+              example:
+                "We ensure fast and reliable delivery across the country.",
+            },
+            ImgUrl1: {
+              type: "string",
+              example: "https://example.com/feature_img1.jpg",
+            },
+            ImgUrl2: {
+              type: "string",
+              example: "https://example.com/feature_img2.jpg",
+            },
+          },
+        },
+        Characteristic: {
+          type: "object",
+          properties: {
+            GraphicUrl: {
+              type: "string",
+              example: "https://example.com/graphic.jpg",
+            },
+            Title: { type: "string", example: "Eco Friendly" },
+            ShortDescription: {
+              type: "string",
+              example: "Our product is environmentally friendly",
+            },
+            SecondTitle: { type: "string", example: "Sustainable & Green" },
+            Description: {
+              type: "string",
+              example:
+                "We use sustainable materials to reduce environmental impact.",
+            },
+            ImgUrl1: {
+              type: "string",
+              example: "https://example.com/img1.jpg",
+            },
+          },
+        },
+        Statistic: {
+          type: "object",
+          properties: {
+            ImgUrl: {
+              type: "string",
+              example: "https://example.com/stat_img.jpg",
+            },
+            Ammount: { type: "number", example: 1500 },
+            Description: {
+              type: "string",
+              example: "Number of satisfied customers worldwide",
+            },
           },
         },
       },
