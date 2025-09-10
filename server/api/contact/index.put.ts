@@ -1,16 +1,3 @@
-import Contact from "../../models/Contact";
-
-export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
-
-  const contact = await Contact.findOneAndUpdate({}, body, {
-    new: true,
-    upsert: true,
-  });
-
-  return contact;
-});
-
 /**
  * @openapi
  * /api/contact:
@@ -32,3 +19,16 @@ export default defineEventHandler(async (event) => {
  *             schema:
  *               $ref: '#/components/schemas/Contact'
  */
+
+import Contact from "../../models/Contact";
+
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event);
+
+  const contact = await Contact.findOneAndUpdate({}, body, {
+    new: true,
+    upsert: true,
+  });
+
+  return contact;
+});
