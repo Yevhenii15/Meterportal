@@ -142,7 +142,11 @@ const options = {
       },
     },
   },
-  apis: ["./server/api/**/*.ts"], // scan JSDoc comments
+  apis: [
+    "./server/api/**/*.ts", // local dev (Nuxt source files)
+    "./.output/server/**/*.mjs", // production build on Render
+    "./.output/server/**/*.js", // just in case Nuxt outputs .js
+  ], // scan JSDoc comments
 };
 
 const swaggerSpec = swaggerJsdoc(options);
