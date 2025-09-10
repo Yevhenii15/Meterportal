@@ -1,5 +1,11 @@
 import swaggerJsdoc from "swagger-jsdoc";
 import { defineEventHandler } from "h3";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+// Resolve paths properly for Nuxt 3
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const options = {
   definition: {
@@ -143,10 +149,8 @@ const options = {
     },
   },
   apis: [
-    "./server/api/**/*.ts", // local dev (Nuxt source files)
-    "./.output/server/**/*.mjs", // production build on Render
-    "./.output/server/**/*.js", // just in case Nuxt outputs .js
-  ], // scan JSDoc comments
+    join(__dirname, "../../server/api/**/*.ts"), // source files for endpoints
+  ],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
