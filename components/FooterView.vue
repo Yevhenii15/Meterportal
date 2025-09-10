@@ -12,7 +12,6 @@
         <p>Måleportal ApS<br />Bødkervej 1<br />6710 Esbjerg V</p>
         <p>CVR/SE-nr.: 41858591</p>
         <p>(+45) 46 97 50 75<br />info@meterportal.eu</p>
-        
       </div>
 
       <!-- Consumer App -->
