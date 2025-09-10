@@ -1,32 +1,35 @@
 <template>
   <nav class="navbar">
-    <!-- Left: Logo -->
-    <div class="logo">
-      <img src="/img/horizontal-color-darkmode.png" alt="Company Logo" class="logo-img" />
-    </div>
+    <div class="container nav-inner">
+      <!-- Left: Logo -->
+      <div class="logo">
+        <img src="/img/horizontal-color-darkmode.png" alt="Company Logo" class="logo-img" />
+      </div>
 
-    <!-- Right: Nav Items -->
-    <div class="nav-items">
-      <button class="btn utility">
-        <span class="dot blue">
-            <img src="../public/img/blueLogo.png" alt="">
-        </span>
-        <span>UTILITY</span>
-      </button>
+      <!-- Right: Nav Items -->
+      <div class="nav-items">
+        <button class="btn utility">
+          <span class="dot blue">
+              <img src="../public/img/blueLogo.png" alt="">
+          </span>
+          <span>UTILITY</span>
+        </button>
 
-      <button class="btn consumer">
-        <span class="dot pink">
-            <img src="../public/img/redLogo.png" alt="">
-        </span>
-        <span>CONSUMER</span>
-      </button>
+        <button class="btn consumer">
+          <span class="dot pink">
+              <img src="../public/img/redLogo.png" alt="">
+          </span>
+          <span>CONSUMER</span>
+        </button>
 
-      <button class="lang-btn">
-        <img src="/img/languageIcon.png" alt="Language" class="lang-icon" />
-      </button>
+        <button class="lang-btn">
+          <img src="/img/languageIcon.png" alt="Language" class="lang-icon" />
+        </button>
+      </div>
     </div>
   </nav>
 </template>
+
 
 <script setup>
 </script>
@@ -34,21 +37,28 @@
 <style scoped>
 /* Navbar container */
 .navbar {
+  position: fixed;   
+  top: 0;           
+  left: 0;
+  right: 0;
+  z-index: 1000;     
+  background: #1D1D1D;
+  color: #fff;
+}
+
+
+.nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 24px;
-  background: #000;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
+  padding: 15px 0; /* vertical padding only, horizontal handled by container */
 }
 
+
 /* Logo */
-.logo {
-  margin-left: 15px;
-}
+
 .logo-img {
-  height: 35px; /* adjust to match your screenshot */
+  height: 45px; 
   display: block;
 }
 
