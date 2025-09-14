@@ -29,9 +29,13 @@ export default defineEventHandler(async (event) => {
   }
 
   // Generate JWT token (valid for 1 hour)
+  if (!process.env.JWT_SECRET) {
+    throw new Error("JWT_SECRET is not set");
+  }
+
   const token = jwt.sign(
     { id: admin._id, username: admin.username },
-    process.env.JWT_SECRET || "supersecret", // use real secret in production!
+    process.env.JWT_SECRET,
     { expiresIn: "1h" }
   );
 
