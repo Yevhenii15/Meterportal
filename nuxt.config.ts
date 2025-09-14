@@ -28,5 +28,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     mongoUri: process.env.MONGO_URI,
+    public: {
+      apiBaseUrl: process.env.VITE_API_BASE_URL || "",
+    },
   },
 });
