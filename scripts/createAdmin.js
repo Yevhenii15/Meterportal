@@ -5,9 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_URI =
-  "mongodb+srv://db_user:xYP6A5ZULGCYRUlj@website.tacdsyi.mongodb.net/M%C3%A5leportal?retryWrites=true&w=majority&appName=Website";
-
+const MONGO_URI = process.env.MONGO_URI;
 async function createAdmin() {
   try {
     await mongoose.connect(MONGO_URI);
