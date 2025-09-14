@@ -1,7 +1,15 @@
 import Statistic from "../../models/Statistic";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const id = event.context.params?.id;
+
+  if (!id) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Statistic ID is required",
+    });
+  }
 
   const deletedStatistic = await Statistic.findByIdAndDelete(id);
   return { message: "Statistic deleted", deletedStatistic };
@@ -11,9 +19,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/statistics/{id}:
  *   delete:
- *     summary: Delete a statistic by ID
+ *     summary: Delete a statistic by ID (admin only)
  *     tags:
  *       - Statistics
+ *     security:
+ *       - bearerAuth: []   # requires JWT auth
  *     parameters:
  *       - name: id
  *         in: path
@@ -32,4 +42,6 @@ export default defineEventHandler(async (event) => {
  *                   type: string
  *                 deletedStatistic:
  *                   $ref: '#/components/schemas/Statistic'
+ *       401:
+ *         description: Unauthorized
  */

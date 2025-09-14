@@ -1,6 +1,7 @@
 import About from "../../models/About";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const body = await readBody(event);
 
   const about = await About.findOneAndUpdate({}, body, {
@@ -15,9 +16,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/about:
  *   put:
- *     summary: Update or create the About entry
+ *     summary: Update or create the About entry (admin only)
  *     tags:
  *       - About
+ *     security:
+ *       - bearerAuth: []   # indicates JWT auth required
  *     requestBody:
  *       required: true
  *       content:
@@ -31,4 +34,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/About'
+ *       401:
+ *         description: Unauthorized
  */

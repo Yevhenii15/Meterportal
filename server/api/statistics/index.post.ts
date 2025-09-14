@@ -1,6 +1,7 @@
 import Statistic from "../../models/Statistic";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const body = await readBody(event);
 
   const statistic = new Statistic(body);
@@ -13,9 +14,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/statistics:
  *   post:
- *     summary: Create a new statistic
+ *     summary: Create a new statistic (admin only)
  *     tags:
  *       - Statistics
+ *     security:
+ *       - bearerAuth: []   # requires JWT auth
  *     requestBody:
  *       required: true
  *       content:
@@ -29,4 +32,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Statistic'
+ *       401:
+ *         description: Unauthorized
  */

@@ -1,7 +1,15 @@
 import Statistic from "../../models/Statistic";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const id = event.context.params?.id;
+  if (!id) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Statistic ID is required",
+    });
+  }
+
   const body = await readBody(event);
 
   const updatedStatistic = await Statistic.findByIdAndUpdate(id, body, {
@@ -16,9 +24,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/statistics/{id}:
  *   put:
- *     summary: Update a statistic by ID
+ *     summary: Update a statistic by ID (admin only)
  *     tags:
  *       - Statistics
+ *     security:
+ *       - bearerAuth: []   # requires JWT auth
  *     parameters:
  *       - name: id
  *         in: path
@@ -38,4 +48,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Statistic'
+ *       401:
+ *         description: Unauthorized
  */

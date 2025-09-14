@@ -1,6 +1,7 @@
 import Feature from "../../models/Feature";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const body = await readBody(event);
 
   const feature = new Feature(body);
@@ -13,9 +14,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/features:
  *   post:
- *     summary: Create a new feature
+ *     summary: Create a new feature (admin only)
  *     tags:
  *       - Features
+ *     security:
+ *       - bearerAuth: []   # requires JWT auth
  *     requestBody:
  *       required: true
  *       content:
@@ -29,4 +32,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Feature'
+ *       401:
+ *         description: Unauthorized
  */

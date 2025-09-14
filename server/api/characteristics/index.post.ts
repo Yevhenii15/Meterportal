@@ -1,6 +1,7 @@
 import Characteristic from "../../models/Characteristic";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const body = await readBody(event);
 
   const characteristic = new Characteristic(body);
@@ -13,9 +14,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/characteristics:
  *   post:
- *     summary: Create a new characteristic
+ *     summary: Create a new characteristic (admin only)
  *     tags:
  *       - Characteristics
+ *     security:
+ *       - bearerAuth: []   # JWT authentication required
  *     requestBody:
  *       required: true
  *       content:
@@ -29,4 +32,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Characteristic'
+ *       401:
+ *         description: Unauthorized
  */

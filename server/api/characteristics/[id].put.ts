@@ -1,7 +1,15 @@
 import Characteristic from "../../models/Characteristic";
+import { verifyAuth } from "../../middleware/auth";
 
-export default defineEventHandler(async (event) => {
+export default verifyAuth(async (event) => {
   const id = event.context.params?.id;
+  if (!id) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Characteristic ID is required",
+    });
+  }
+
   const body = await readBody(event);
 
   const updatedCharacteristic = await Characteristic.findByIdAndUpdate(
@@ -20,9 +28,11 @@ export default defineEventHandler(async (event) => {
  * @openapi
  * /api/characteristics/{id}:
  *   put:
- *     summary: Update a characteristic by ID
+ *     summary: Update a characteristic by ID (admin only)
  *     tags:
  *       - Characteristics
+ *     security:
+ *       - bearerAuth: []   # requires JWT auth
  *     parameters:
  *       - name: id
  *         in: path
@@ -42,4 +52,6 @@ export default defineEventHandler(async (event) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Characteristic'
+ *       401:
+ *         description: Unauthorized
  */
