@@ -1,5 +1,5 @@
 import IntroInfo from "../../models/IntroInfo";
-import { verifyAuth } from "../../middleware/auth";
+import { verifyAuth } from "../../utils/auth";
 
 export default verifyAuth(async (event) => {
   const body = await readBody(event);

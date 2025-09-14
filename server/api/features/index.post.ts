@@ -1,5 +1,5 @@
 import Feature from "../../models/Feature";
-import { verifyAuth } from "../../middleware/auth";
+import { verifyAuth } from "../../utils/auth";
 
 export default verifyAuth(async (event) => {
   const body = await readBody(event);

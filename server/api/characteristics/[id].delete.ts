@@ -1,5 +1,5 @@
 import Characteristic from "../../models/Characteristic";
-import { verifyAuth } from "../../middleware/auth";
+import { verifyAuth } from "../../utils/auth";
 
 export default verifyAuth(async (event) => {
   const id = event.context.params?.id;
