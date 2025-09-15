@@ -28,7 +28,7 @@ import AlsoGet from "~/components/AlsoGetView.vue";
 import Features from "~/components/FeaturesView.vue";
 </script>
 
-<style scoped>
+<style>
 .container {
   margin: 0 auto;
   font-family: "Montserrat", sans-serif;
