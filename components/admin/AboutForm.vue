@@ -98,11 +98,14 @@ const handleFile = async (event: Event) => {
   const file = (event.target as HTMLInputElement).files?.[0];
   if (!file) return;
 
+  // Save current image URL to delete after upload
+  const oldUrl = form.ImgUrl || undefined;
+
   // Show local preview immediately
   form.ImgUrl = URL.createObjectURL(file);
 
   uploading.value = true;
-  const url = await uploadImage(file);
+  const url = await uploadImage(file, oldUrl); // <-- pass oldUrl here
   uploading.value = false;
 
   if (url) form.ImgUrl = url; // replace preview with actual uploaded URL

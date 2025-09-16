@@ -11,6 +11,7 @@
     </div>
 
     <AboutForm />
+    <CharacteristicForm />
   </div>
 </template>
 
@@ -18,6 +19,7 @@
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import AboutForm from "~/components/admin/AboutForm.vue";
+import CharacteristicForm from "~/components/admin/CharacteristicForm.vue";
 import { useAuth } from "~/composables/useAuth";
 
 const { token, loadToken, logout } = useAuth();

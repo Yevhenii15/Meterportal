@@ -1,7 +1,13 @@
 export function useUpload() {
-  const uploadImage = async (file: File): Promise<string | null> => {
+  const uploadImage = async (
+    file: File,
+    oldUrl?: string
+  ): Promise<string | null> => {
     const formData = new FormData();
     formData.append("file", file);
+
+    // send old URL to backend to delete
+    if (oldUrl) formData.append("oldUrl", oldUrl);
 
     try {
       const res = await fetch("/api/upload", {
