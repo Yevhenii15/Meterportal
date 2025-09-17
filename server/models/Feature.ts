@@ -9,7 +9,6 @@ const FeatureSchema = new Schema({
   SecondTitle: { type: String },
   Description: { type: String },
   ImgUrl1: { type: String },
-  ImgUrl2: { type: String },
 });
 
 export default models.Feature || model("Feature", FeatureSchema);

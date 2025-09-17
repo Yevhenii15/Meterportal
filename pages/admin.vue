@@ -12,6 +12,10 @@
 
     <AboutForm />
     <CharacteristicForm />
+    <FeatureForm />
+    <StatisticForm />
+    <ContactForm />
+    <IntroInfoForm />
   </div>
 </template>
 
@@ -20,6 +24,10 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import AboutForm from "~/components/admin/AboutForm.vue";
 import CharacteristicForm from "~/components/admin/CharacteristicForm.vue";
+import FeatureForm from "~/components/admin/FeatureForm.vue";
+import StatisticForm from "~/components/admin/StatisticForm.vue";
+import ContactForm from "~/components/admin/ContactForm.vue";
+import IntroInfoForm from "~/components/admin/IntroInfoForm.vue";
 import { useAuth } from "~/composables/useAuth";
 
 const { token, loadToken, logout } = useAuth();

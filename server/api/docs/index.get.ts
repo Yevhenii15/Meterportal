@@ -108,10 +108,6 @@ const options = {
               type: "string",
               example: "https://example.com/feature_img1.jpg",
             },
-            ImgUrl2: {
-              type: "string",
-              example: "https://example.com/feature_img2.jpg",
-            },
           },
         },
         Characteristic: {
