@@ -35,7 +35,7 @@
 
       <!-- Image Upload -->
       <div>
-        <label class="block text-sm font-medium">Image</label>
+        <label class="block text-sm font-medium">Why work with us? Image</label>
         <input type="file" accept="image/*" @change="handleFile" />
 
         <div v-if="uploading" class="text-blue-600 mt-2">Uploading...</div>
