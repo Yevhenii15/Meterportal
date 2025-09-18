@@ -276,6 +276,7 @@ const closeFeature = () => {
   font-size: large;
 }
 
+
 .modal-images {
   display: flex;
   gap: 10px;
