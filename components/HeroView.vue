@@ -53,7 +53,7 @@ function scrollToFeatures() {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.431);
+  background: rgba(0, 0, 0, 0.674);
 }
 
 .hero-content {
