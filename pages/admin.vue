@@ -16,6 +16,7 @@
     <StatisticForm />
     <ContactForm />
     <IntroInfoForm />
+    <FeedbackForm />
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import FeatureForm from "~/components/admin/FeatureForm.vue";
 import StatisticForm from "~/components/admin/StatisticForm.vue";
 import ContactForm from "~/components/admin/ContactForm.vue";
 import IntroInfoForm from "~/components/admin/IntroInfoForm.vue";
+import FeedbackForm from "~/components/admin/FeedbackForm.vue";
 import { useAuth } from "~/composables/useAuth";
 
 const { token, loadToken, logout } = useAuth();
