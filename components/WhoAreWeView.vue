@@ -1,37 +1,37 @@
+<<script setup lang="ts">
+import { onMounted } from "vue";
+import { useAbout } from "@/composables/useAbout";
+
+const { about, getAbout, loading, error } = useAbout();
+
+onMounted(() => {
+  getAbout();
+});
+</script>
+
 <template>
   <section class="who-are-we">
     <div class="container who-are-we__grid">
       <!-- Left Column: Text -->
       <div class="who-are-we__content">
         <h2 class="section-title">Who are we?</h2>
-        <p>
-          We are Måleportal – a team dedicated to making your water and
-          electricity consumption easy to understand, track, and control. Our
-          platform is built for one purpose: to give you full transparency and
-          peace of mind when it comes to your usage.
-        </p>
-        <p>
-          By working hand-in-hand with utility providers, we ensure you get
-          accurate, real-time data right where you need it – on your phone or
-          computer. This means you can make informed decisions, avoid surprises
-          on your bills, and respond quickly to any issues like leaks or unusual
-          consumption.
-        </p>
-        <p>
-          Your trust matters to us. That’s why we protect your data with the
-          highest security standards and never share it without your consent.
-        </p>
+        <p v-if="about">{{ about.Description }}</p>
+        <p v-else>Loading description...</p>
       </div>
 
       <!-- Right Column: Person + CTA -->
-      <div class="who-are-we__profile">
-        <h3 class="profile-name">Lasse Opstrup</h3>
-        <p class="profile-role">CDO, Måleportal</p>
+      <div class="who-are-we__profile" v-if="about">
+        <h3 class="profile-name">{{ about.NameOfCDO }}</h3>
+        <p class="profile-role">{{ about.PositionOfCDO }}</p>
         <button class="cta-button">CALL US NOW</button>
       </div>
     </div>
+
+    <div v-if="loading">Loading...</div>
+    <div v-if="error" class="error">{{ error }}</div>
   </section>
 </template>
+
 
 <style scoped>
 .who-are-we {

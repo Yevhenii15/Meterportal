@@ -1,41 +1,64 @@
 <template>
-  <section class="hero">
+  <section
+    class="hero"
+    :style="{
+      backgroundImage: introInfo?.MainImgUrl
+        ? `url(${introInfo.MainImgUrl})`
+        : 'url(/img/maalerportal.jpg)'
+    }"
+  >
     <div class="overlay"></div>
 
     <div class="container hero-content">
-      <h1>WELCOME TO MÅLERPORTAL</h1>
+      <h1>{{ introInfo?.Title || 'WELCOME TO MÅLERPORTAL' }}</h1>
 
       <div class="bottom-row">
         <div class="left">
           <div class="accent"></div>
-          <p>From Operations to Homes – 
-            <br>
-            We Keep Utilities in Your Hands.</p>
+          <p v-if="introInfo?.Slogan">{{ introInfo.Slogan }}</p>
         </div>
 
         <div class="buttons">
-          <a href="https://www.meterportal.eu/en" class="btn-primary">DOWNLOAD APP</a>
-         <a href="#" class="btn-link" @click.prevent="scrollToFeatures">See How It Works</a>
+          <a
+            :href="introInfo?.DownloadAppStore || 'https://www.meterportal.eu/en'"
+            class="btn-primary"
+          >
+            DOWNLOAD APP
+          </a>
+          <a href="#" class="btn-link" @click.prevent="scrollToFeatures"
+            >See How It Works</a
+          >
         </div>
       </div>
     </div>
-    <!-- Add this inside your hero-content, at the end -->
-<div class="scroll-down">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
 
+    <div class="scroll-down">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div v-if="loading">Loading...</div>
+    <div v-if="error">{{ error }}</div>
   </section>
 </template>
 
+
 <script setup>
+import { onMounted } from "vue";
+import { useIntroInfo } from "@/composables/useIntroInfo";
+
+const { introInfo, getIntroInfo, loading, error } = useIntroInfo();
+
+onMounted(() => {
+  getIntroInfo();
+});
+
 function scrollToFeatures() {
   const el = document.getElementById("features");
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth" });
-  }
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
+
 </script>
 
 

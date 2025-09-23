@@ -1,44 +1,36 @@
 <template>
-  <div class="flex justify-center items-center min-h-screen bg-gray-100">
-    <div class="w-full max-w-sm bg-white p-6 rounded-lg shadow">
-      <h1 class="text-2xl font-bold mb-4">Admin Login</h1>
+  <div class="login-page">
+    <div class="login-card">
+      <h1 class="login-title">Admin Login</h1>
 
-      <form @submit.prevent="handleLogin" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >Username</label
-          >
+      <form @submit.prevent="handleLogin" class="login-form">
+        <div class="form-group">
+          <label>Username</label>
           <input
             v-model="username"
             type="text"
             required
-            class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter username"
           />
         </div>
 
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >Password</label
-          >
+        <div class="form-group">
+          <label>Password</label>
           <input
             v-model="password"
             type="password"
             required
-            class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter password"
           />
         </div>
 
-        <button
-          type="submit"
-          class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50"
-          :disabled="loading"
-        >
+        <button type="submit" :disabled="loading">
           <span v-if="loading">Logging in...</span>
           <span v-else>Login</span>
         </button>
       </form>
 
-      <p v-if="error" class="mt-3 text-red-600 text-sm">{{ error }}</p>
+      <p v-if="error" class="error-message">{{ error }}</p>
     </div>
   </div>
 </template>
@@ -54,10 +46,95 @@ const password = ref("");
 
 const handleLogin = async () => {
   const success = await login(username.value, password.value);
-
   if (success) {
-    // Redirect after successful login
     navigateTo("/admin");
   }
 };
 </script>
+
+<style scoped>
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1D1D1D;
+  font-family: Arial, sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #262626;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #1D1D1D;
+  color: white;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.login-form input::placeholder {
+  color: #888;
+}
+
+.login-form input:focus {
+  border-color: #F47E26;
+  box-shadow: 0 0 0 2px rgba(244, 126, 38, 0.3);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #EE1063;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-form button:hover {
+  background-color: #F0532D;
+}
+
+.login-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: #EE1063;
+  font-size: 0.9rem;
+  text-align: center;
+}
+</style>

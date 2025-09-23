@@ -2,12 +2,31 @@
   <section class="why-we">
     <div class="container">
       <h2 class="section-title">Why work with us?</h2>
-      <div class="why-we__image">
+
+      <div class="why-we__image" v-if="about?.ImgUrl">
+        <img :src="about.ImgUrl" alt="Why work with us infographic" />
+      </div>
+
+      <!-- Optional fallback if image not loaded yet -->
+      <div class="why-we__image" v-else>
         <img src="../public/img/final.png" alt="Why work with us infographic" />
       </div>
     </div>
   </section>
 </template>
+
+
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { useAbout } from "@/composables/useAbout";
+
+const { about, getAbout, loading, error } = useAbout();
+
+onMounted(() => {
+  getAbout();
+});
+</script>
+
 
 <style scoped>
 .why-we {

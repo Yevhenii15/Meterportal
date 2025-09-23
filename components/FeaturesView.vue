@@ -1,3 +1,23 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import { useCharacteristics } from "@/composables/useCharacteristics";
+
+const { characteristics, getCharacteristics, loading, error } = useCharacteristics();
+const activeFeature = ref(null);
+
+onMounted(() => {
+  getCharacteristics();
+});
+
+const openFeature = (feature) => {
+  activeFeature.value = feature;
+};
+
+const closeFeature = () => {
+  activeFeature.value = null;
+};
+</script>
+
 <template>
   <section id="features" class="features-view">
     <div class="container">
@@ -5,48 +25,50 @@
 
       <!-- Horizontal scrollable screenshots -->
       <div class="screens-scroll">
-  <div
-    v-for="(feature, index) in features"
-    :key="index"
-    class="screen-card"
-    @click="openFeature(feature)"
-  >
-    <img :src="feature.image" :alt="feature.title" class="screenshot" />
-    <div class="overlay">
-      <h3>{{ feature.title }}</h3>
-      <p>{{ feature.text }}</p>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div v-if="activeFeature" class="modal-overlay" @click.self="closeFeature">
-  <div class="modal-content">
-    <button class="close-btn" @click="closeFeature">✕</button>
-
-    <!-- Flex container for text + images -->
-    <div class="modal-body">
-      <div class="modal-text">
-        <div class="modal-heading">
-          <h2>{{ activeFeature.title }}</h2>
-        </div> 
-        <div class="modal-subtitle"> 
-        <h3>{{ activeFeature.subtitle }}</h3>
+        <div
+          v-for="(feature, index) in characteristics"
+          :key="feature._id || index"
+          class="screen-card"
+          @click="openFeature(feature)"
+        >
+          <img
+            :src="feature.GraphicUrl"
+            :alt="feature.Title"
+            class="screenshot"
+          />
+          <div class="overlay">
+            <h3>{{ feature.Title }}</h3>
+            <p>{{ feature.ShortDescription }}</p>
+          </div>
         </div>
-        <p v-html="activeFeature.description"></p>
       </div>
 
-      <div class="modal-images">
-        <img
-          v-for="(img, i) in activeFeature.images"
-          :key="i"
-          :src="img"
-          :alt="activeFeature.title"
-        />
+      <!-- Modal -->
+      <div v-if="activeFeature" class="modal-overlay" @click.self="closeFeature">
+        <div class="modal-content">
+          <button class="close-btn" @click="closeFeature">✕</button>
+
+          <div class="modal-body">
+            <div class="modal-text">
+              <div class="modal-heading">
+                <h2>{{ activeFeature.Title }}</h2>
+              </div>
+              <div class="modal-subtitle">
+                <h3>{{ activeFeature.SecondTitle }}</h3>
+              </div>
+              <p v-html="activeFeature.Description"></p>
+            </div>
+
+            <div class="modal-images">
+              <img
+                v-if="activeFeature.ImgUrl1"
+                :src="activeFeature.ImgUrl1"
+                :alt="activeFeature.Title"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       <!-- Bottom text + button inline -->
       <div class="bottom-cta">
@@ -57,63 +79,6 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { featuresData } from "../data/features.js"; 
-
-const features = ref([
-  {
-    slug: "alarms-alerts",
-    image: "/img/Alarm.png",
-    title: "Alarms & Alerts",
-    text: "Here user can choose, which alarms they want to get and where they want to get them.",
-  },
-  {
-    slug: "fixed-network",
-    image: "/img/fixed_network.png",
-    title: "Fixed Network",
-    text: "When meter data is collected daily via a fixed network or IoT, consumers can monitor their consumption down to hourly intervals.",
-  },
-  {
-    slug: "drive-by-readings",
-    image: "/img/drive_by.png",
-    title: "Drive-by Readings",
-    text: "When meter data is collected via drive-by, the intervals between readings are significantly longer. Therefore, we show a daily average based on consumption between the latest and previous reading.",
-  },
-  {
-    slug: "multiple-address",
-    image: "/img/multiple_adresses.png",
-    title: "Multi-address Support",
-    text: "Easily manage multiple households and meter addresses within one account.",
-  },
-  {
-    slug: "notifications",
-    image: "/img/notificat.png",
-    title: "Notifications",
-    text: "Stay updated with critical alerts like leaks, abnormal consumption, and billing changes.",
-  },
-  {
-    slug: "invoices",
-    image: "/img/invoices.png",
-    title: "Invoices",
-    text: "View, download, and keep track of invoices directly inside the app.",
-  },
-]);
-
-const activeFeature = ref(null);
-
-const openFeature = (feature) => {
-  // find full data from featuresData by slug
-  const fullFeature = featuresData.find((f) => f.slug === feature.slug);
-  if (fullFeature) {
-    activeFeature.value = fullFeature;
-  }
-};
-
-const closeFeature = () => {
-  activeFeature.value = null;
-};
-</script>
 
 
 <style scoped>

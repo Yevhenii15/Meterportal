@@ -6,21 +6,33 @@
 
       <!-- Dark Content Box -->
       <div class="content-box">
-        <p>
+        <p v-if="introInfo?.Description">{{ introInfo.Description }}</p>
+
+        <!-- Optional fallback -->
+        <p v-else>
           Måleportal is not only a smart app for consumers – it’s a complete platform that supports both households and utilities.
         </p>
-        <p>
-          For consumers, it provides simple tools to track water and electricity usage, receive alerts, and stay in control of daily consumption. 
-          For utilities, it offers powerful administration features: installation management, user access, tariff setup, alarms, data export, 
-          and direct communication with customers.
-        </p>
-        <p>
-          By connecting both sides, Måleportal creates transparency, efficiency, and trust – making utility management easier for providers and everyday life clearer for consumers.
-        </p>
       </div>
+
+      <!-- Optional loading/error -->
+      <div v-if="loading">Loading...</div>
+      <div v-if="error">{{ error }}</div>
     </div>
   </section>
 </template>
+
+
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { useIntroInfo } from "@/composables/useIntroInfo";
+
+const { introInfo, getIntroInfo, loading, error } = useIntroInfo();
+
+onMounted(() => {
+  getIntroInfo();
+});
+</script>
+
 
 <style scoped>
 .weare {

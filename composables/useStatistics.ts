@@ -3,7 +3,7 @@ import { ref } from "vue";
 export interface Statistic {
   _id?: string;
   ImgUrl: string;
-  Ammount: number;
+  Ammount: string;
   Description: string;
 }
 

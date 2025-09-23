@@ -1,39 +1,30 @@
+import { readBody } from "h3";
 import About from "../../models/About";
-import { verifyAuth } from "../../utils/auth";
 
-export default verifyAuth(async (event) => {
-  const body = await readBody(event);
+export default defineEventHandler(async (event) => {
+  try {
+    const body = await readBody(event);
 
-  const about = await About.findOneAndUpdate({}, body, {
-    new: true,
-    upsert: true,
-  });
+    // Find the existing About doc
+    let about = await About.findOne();
 
-  return about;
+    if (!about) {
+      // If none exists, create new one
+      about = new About(body);
+    } else {
+      // Update fields
+      about.Description = body.Description ?? about.Description;
+      about.NameOfCDO = body.NameOfCDO ?? about.NameOfCDO;
+      about.PositionOfCDO = body.PositionOfCDO ?? about.PositionOfCDO;
+      about.ImgUrl = body.ImgUrl ?? about.ImgUrl;
+    }
+
+    await about.save();
+    return about;
+  } catch (err: any) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: err.message || "Failed to update About info",
+    });
+  }
 });
-
-/**
- * @openapi
- * /api/about:
- *   put:
- *     summary: Update or create the About entry (admin only)
- *     tags:
- *       - About
- *     security:
- *       - bearerAuth: []   # indicates JWT auth required
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/About'
- *     responses:
- *       200:
- *         description: The updated or created About entry
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/About'
- *       401:
- *         description: Unauthorized
- */

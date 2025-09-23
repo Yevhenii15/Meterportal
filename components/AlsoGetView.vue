@@ -7,95 +7,63 @@
       <div class="features-scroll">
         <div
           class="feature-card"
-          v-for="(feature, index) in features"
-          :key="index"
+          v-for="feature in features"
+          :key="feature._id"
           @click="openFeature(feature)"
         >
           <div class="feature-inner">
             <div class="icon">
-              <img :src="feature.icon" :alt="feature.title" />
+              <img :src="feature.MainImgUrl" :alt="feature.Title" />
             </div>
-            <h3>{{ feature.title }}</h3>
+            <h3>{{ feature.Title }}</h3>
           </div>
-          <p class="desc">{{ feature.text }}</p>
+          <p class="desc">{{ feature.ShortDescription }}</p>
         </div>
       </div>
     </div>
 
     <!-- Modal -->
-<div v-if="activeFeature" class="modal-overlay" @click.self="closeFeature">
-  <div class="modal-content">
-    <button class="close-btn" @click="closeFeature">✕</button>
+    <div v-if="activeFeature" class="modal-overlay" @click.self="closeFeature">
+      <div class="modal-content">
+        <button class="close-btn" @click="closeFeature">✕</button>
 
-    <!-- Flex container for text + images -->
-    <div class="modal-body">
-      <div class="modal-text">
-        <div class="modal-heading">
-          <h2>{{ activeFeature.title }}</h2>
-        </div> 
-        <div class="modal-subtitle"> 
-          <h3>{{ activeFeature.subtitle }}</h3>
+        <div class="modal-body">
+          <div class="modal-text">
+            <div class="modal-heading">
+              <h2>{{ activeFeature.Title }}</h2>
+            </div>
+            <div class="modal-subtitle">
+              <h3>{{ activeFeature.SecondTitle }}</h3>
+            </div>
+            <p v-html="activeFeature.Description"></p>
+          </div>
+
+          <div class="modal-images">
+            <img
+              v-if="activeFeature.ImgUrl1"
+              :src="activeFeature.ImgUrl1"
+              :alt="activeFeature.Title"
+            />
+          </div>
         </div>
-        <p v-html="activeFeature.description"></p>
-      </div>
-
-      <div class="modal-images">
-        <img
-          v-for="(img, i) in activeFeature.images"
-          :key="i"
-          :src="img"
-          :alt="activeFeature.title"
-        />
       </div>
     </div>
-  </div>
-</div>
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { additionFeaturesData } from "@/data/additionFeatures.js"; // create this file for full details
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useFeatures } from "@/composables/useFeatures";
 
-const features = ref([
-  {
-    icon: "/img/analytics.png",
-    title: "Technician app",
-    text: "Easy support and contact with consumers via app, general information about meters, usage of energy etc.",
-    slug: "technician-app",
-  },
-  {
-    icon: "/img/mobile-app.png",
-    title: "Consumer App",
-    text: "Clients will have the possibility to install MeterPortal app for convenient track of their consumption.",
-    slug: "consumer-app",
-  },
-  {
-    icon: "/img/bell.png",
-    title: "Smart Notifications",
-    text: "Get alerts for unusual energy usage, billing changes, or consumption goals.",
-    slug: "smart-notifications",
-  },
-  {
-    icon: "/img/location.png",
-    title: "Meters locations",
-    text: "Get exact coordinates of meters installed inside the household areas, for easy future service.",
-    slug: "meters-locations",
-  },
-  {
-    icon: "/img/message.png",
-    title: "Messaging Templates",
-    text: "Useful templates for multiple times use for informing residents about latest news, repairs, changing meters etc.",
-    slug: "messaging-templates",
-  },
-]);
+const { features, getFeatures } = useFeatures();
+const activeFeature = ref<any | null>(null);
 
-const activeFeature = ref(null);
+onMounted(() => {
+  getFeatures();
+});
 
-const openFeature = (feature) => {
-  // Get detailed info from additionFeaturesData by slug
-  const fullFeature = additionFeaturesData.find((f) => f.slug === feature.slug);
-  if (fullFeature) activeFeature.value = fullFeature;
+const openFeature = (feature: any) => {
+  activeFeature.value = feature;
 };
 
 const closeFeature = () => {

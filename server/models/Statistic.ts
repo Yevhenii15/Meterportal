@@ -4,7 +4,7 @@ const { Schema, model, models } = mongoose;
 
 const StatisticSchema = new Schema({
   ImgUrl: { type: String, required: true },
-  Ammount: { type: Number, required: true },
+  Ammount: { type: String, required: true },
   Description: { type: String, required: true },
 });
 

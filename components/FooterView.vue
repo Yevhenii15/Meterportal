@@ -4,14 +4,28 @@
     <div class="footer-top-border"></div>
 
     <div class="container footer-grid">
-      <!-- Company Info -->
+      <!-- Company Info (dynamic) -->
       <div class="footer-col">
         <div class="footer-logo">
           <a href="#"><img src="../public/img/horizontal-color-darkmode.png" alt="Måleportal" /></a>
         </div>
-        <p>Måleportal ApS<br />Bødkervej 1<br />6710 Esbjerg V</p>
-        <p>CVR/SE-nr.: 41858591</p>
-        <p>(+45) 46 97 50 75<br />info@meterportal.eu</p>
+
+        <p v-if="contact">
+          {{ contact.Address }}
+        </p>
+        <p v-if="contact">
+          CVR/SE-nr.: {{ contact.VatNumber }}
+        </p>
+        <p v-if="contact">
+          {{ contact.Phone }}<br />{{ contact.Email }}
+        </p>
+        <!-- Optional fallback if contact not loaded yet -->
+        <p v-else>
+          Måleportal ApS<br />Bødkervej 1<br />6710 Esbjerg V<br/>
+          CVR/SE-nr.: 41858591<br/>
+          (+45) 46 97 50 75<br/>info@meterportal.eu<br/>
+          Working hours: Mon-Fri 08:00-16:00
+        </p>
       </div>
 
       <!-- Consumer App -->
@@ -65,6 +79,19 @@
     </div>
   </div>
 </template>
+
+
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { useContact } from "@/composables/useContact";
+
+const { contact, getContact, loading, error } = useContact();
+
+onMounted(() => {
+  getContact();
+});
+</script>
+
 
 <style scoped>
 .footer {

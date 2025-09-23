@@ -27,8 +27,8 @@
           class="border p-2 rounded"
         />
         <input
-          v-model.number="stat.Ammount"
-          type="number"
+          v-model="stat.Ammount"
+          type="text"
           placeholder="Ammount"
           class="border p-2 rounded"
         />
@@ -201,7 +201,7 @@ const deleteStat = async (stat: Statistic) => {
 const newStat = reactive<Statistic>({
   ImgUrl: "",
   Description: "",
-  Ammount: 0,
+  Ammount: "",
 });
 const uploadingNewImg = ref(false);
 
@@ -225,7 +225,7 @@ const createStat = async () => {
   const payload: Statistic = { ...newStat };
   const ok = await createStatistic(payload);
   if (ok) {
-    Object.assign(newStat, { ImgUrl: "", Description: "", Ammount: 0 });
+    Object.assign(newStat, { ImgUrl: "", Description: "", Ammount: "" });
     if (newImgInput.value) newImgInput.value.value = "";
     await getStatistics();
     showMessage("Statistic created successfully!");

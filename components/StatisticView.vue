@@ -6,45 +6,35 @@
 
       <!-- Stats Grid -->
       <div class="stats-grid">
-        <!-- Card 1 -->
-        <div class="stat-card">
+        <!-- Render each statistic dynamically -->
+        <div class="stat-card" v-for="stat in statistics" :key="stat._id">
           <div class="icon">
-            <img src="../public/img/building.png" alt="Utility providers" />
+            <img :src="stat.ImgUrl" :alt="stat.Description" />
           </div>
-          <h3>200+</h3>
-          <p>Utility providers connected</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="stat-card">
-          <div class="icon">
-            <img src="../public/img/drop.png" alt="Households tracking water" />
-          </div>
-          <h3>25,000+</h3>
-          <p>Households tracking their water</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="stat-card">
-          <div class="icon">
-            <img src="../public/img/thunder.png" alt="Users monitoring electricity" />
-          </div>
-          <h3>15,000+</h3>
-          <p>Users monitoring electricity</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="stat-card">
-          <div class="icon">
-            <img src="../public/img/high-quality.png" alt="Years in the industry" />
-          </div>
-          <h3>20+</h3>
-          <p>Years in the industry</p>
+          <h3>{{ stat.Ammount }}</h3>
+          <p>{{ stat.Description }}</p>
         </div>
       </div>
+
+      <!-- Optional loading/error messages -->
+      <div v-if="loading">Loading...</div>
+      <div v-if="error">{{ error }}</div>
     </div>
   </section>
 </template>
+
+
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { useStatistics } from "@/composables/useStatistics";
+
+const { statistics, getStatistics, loading, error } = useStatistics();
+
+onMounted(() => {
+  getStatistics();
+});
+</script>
+
 
 <style scoped>
 .statistics {
