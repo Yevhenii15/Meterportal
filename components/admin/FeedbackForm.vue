@@ -42,7 +42,6 @@ onMounted(() => {
 
 <template>
   <section class="admin-feedback">
-    <h2>Feedback Management</h2>
 
     <div v-if="loading">Loading feedbacks...</div>
     <div v-if="error" class="error">{{ error }}</div>

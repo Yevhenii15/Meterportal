@@ -19,26 +19,13 @@
       </router-link>
     </div>
 
-    <AboutForm />
-    <CharacteristicForm />
-    <FeatureForm />
-    <StatisticForm />
-    <ContactForm />
-    <IntroInfoForm />
-    <FeedbackForm />
+
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import AboutForm from "~/components/admin/AboutForm.vue";
-import CharacteristicForm from "~/components/admin/CharacteristicForm.vue";
-import FeatureForm from "~/components/admin/FeatureForm.vue";
-import StatisticForm from "~/components/admin/StatisticForm.vue";
-import ContactForm from "~/components/admin/ContactForm.vue";
-import IntroInfoForm from "~/components/admin/IntroInfoForm.vue";
-import FeedbackForm from "~/components/admin/FeedbackForm.vue";
 import { useAuth } from "~/composables/useAuth";
 
 const { logout, loadToken, token } = useAuth();
@@ -57,7 +44,7 @@ const sections = [
   { key: "characteristics", label: "Characteristics", icon: "⚙️", link: "/backend/characteristics" },
   { key: "features", label: "Features", icon: "🌟", link: "/backend/features" },
   { key: "statistics", label: "Statistics", icon: "📊", link: "/backend/statistics" },
-  { key: "contact", label: "Contact", icon: "📞", link: "/backend/contact" },
+  { key: "feedback", label: "Feedback", icon: "📞", link: "/backend/feedback" },
   { key: "intro", label: "Intro Info", icon: "💡", link: "/backend/intro" },
 ];
 </script>

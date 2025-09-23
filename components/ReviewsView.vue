@@ -66,7 +66,7 @@ const submitFeedback = async () => {
         <input
           v-model="newFeedback.email"
           type="email"
-          placeholder="Your Email (optional)"
+          placeholder="Your Email"
         />
         <select v-model="newFeedback.role">
           <option value="Consumer">Consumer</option>

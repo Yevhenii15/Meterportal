@@ -10,11 +10,13 @@
       </button>
     </div>
     <AboutForm />
+    <ContactForm />
   </div>
 </template>
 
 <script setup lang="ts">
 import AboutForm from "~/components/admin/AboutForm.vue";
+import ContactForm from "~/components/admin/ContactForm.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
