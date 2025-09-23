@@ -40,7 +40,6 @@ import ContactForm from "~/components/admin/ContactForm.vue";
 import IntroInfoForm from "~/components/admin/IntroInfoForm.vue";
 import FeedbackForm from "~/components/admin/FeedbackForm.vue";
 import { useAuth } from "~/composables/useAuth";
-import { useRouter } from "vue-router";
 
 const { logout, loadToken, token } = useAuth();
 const router = useRouter();
