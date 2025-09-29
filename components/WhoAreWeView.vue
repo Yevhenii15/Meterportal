@@ -1,4 +1,5 @@
-<<script setup lang="ts">
+<
+<script setup lang="ts">
 import { onMounted } from "vue";
 import { useAbout } from "@/composables/useAbout";
 
@@ -10,7 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="who-are-we">
+  <section id="about-us" class="who-are-we">
     <div class="container who-are-we__grid">
       <!-- Left Column: Text -->
       <div class="who-are-we__content">
@@ -31,7 +32,6 @@ onMounted(() => {
     <div v-if="error" class="error">{{ error }}</div>
   </section>
 </template>
-
 
 <style scoped>
 .who-are-we {
@@ -65,7 +65,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center; /* vertical centering */
-  align-items: center;     /* horizontal centering */
+  align-items: center; /* horizontal centering */
   text-align: center;
 }
 
