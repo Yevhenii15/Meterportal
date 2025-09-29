@@ -3,7 +3,6 @@
     <div class="footer-top-border"></div>
 
     <div class="container footer-grid">
-      <!-- Column 1: Logo & Contact -->
       <div class="footer-col footer-logo-col">
         <div class="footer-logo">
           <a href="#">
