@@ -1,9 +1,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useCharacteristics } from "@/composables/useCharacteristics";
+import ContactModal from "./ContactModal.vue";
 
 const { characteristics, getCharacteristics, loading, error } = useCharacteristics();
 const activeFeature = ref(null);
+const showContact = ref(false);
 
 onMounted(() => {
   getCharacteristics();
@@ -61,6 +63,11 @@ const closeFeature = () => {
 
             <div class="modal-images">
               <img
+                v-if="activeFeature.GraphicUrl"
+                :src="activeFeature.GraphicUrl"
+                :alt="activeFeature.Title"
+              />
+              <img
                 v-if="activeFeature.ImgUrl1"
                 :src="activeFeature.ImgUrl1"
                 :alt="activeFeature.Title"
@@ -73,10 +80,13 @@ const closeFeature = () => {
       <!-- Bottom text + button inline -->
       <div class="bottom-cta">
         <p>Get expired, don’t wait contact us right now</p>
-        <button class="cta-btn">CONTACT US</button>
+        <button class="cta-btn" @click="showContact = true">
+               CONTACT US
+            </button>
       </div>
     </div>
   </section>
+  <ContactModal v-model:isOpen="showContact" />
 </template>
 
 

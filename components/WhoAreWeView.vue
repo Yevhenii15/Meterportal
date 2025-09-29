@@ -1,9 +1,10 @@
-<
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useAbout } from "@/composables/useAbout";
+import ContactModal from "./ContactModal.vue";
 
 const { about, getAbout, loading, error } = useAbout();
+const showContact = ref(false);
 
 onMounted(() => {
   getAbout();
@@ -24,13 +25,14 @@ onMounted(() => {
       <div class="who-are-we__profile" v-if="about">
         <h3 class="profile-name">{{ about.NameOfCDO }}</h3>
         <p class="profile-role">{{ about.PositionOfCDO }}</p>
-        <button class="cta-button">CALL US NOW</button>
+        <button class="cta-button" @click="showContact = true">CALL US NOW</button>
       </div>
     </div>
 
     <div v-if="loading">Loading...</div>
     <div v-if="error" class="error">{{ error }}</div>
   </section>
+  <ContactModal v-model:isOpen="showContact" />
 </template>
 
 <style scoped>
