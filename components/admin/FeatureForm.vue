@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-5xl mx-auto p-6 space-y-8">
-    <h1 class="text-3xl font-bold mb-4">Features Management</h1>
+    <h1 class="text-3xl font-bold mb-4">Characteristics Management</h1>
 
     <!-- Toast -->
     <div
@@ -10,13 +10,13 @@
       {{ message }}
     </div>
 
-    <!-- Existing Features -->
+    <!-- Existing Characteristics -->
     <div
       v-for="(feature, index) in features"
       :key="feature._id"
       class="bg-white p-6 rounded-lg shadow space-y-4"
     >
-      <h2 class="text-xl font-semibold mb-2">Edit Feature #{{ index + 1 }}</h2>
+      <h2 class="text-xl font-semibold mb-2">Edit Characteristics #{{ index + 1 }}</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
@@ -45,7 +45,7 @@
 
         <!-- Main Image -->
         <div>
-          <label class="block text-sm font-medium">Main Image</label>
+          <label class="block text-sm font-medium">Graphic</label>
           <input
             type="file"
             accept="image/*"
@@ -63,7 +63,7 @@
 
         <!-- Extra Images -->
         <div>
-          <label class="block text-sm font-medium">Image 1</label>
+          <label class="block text-sm font-medium">Image</label>
           <input
             type="file"
             accept="image/*"
@@ -101,7 +101,7 @@
 
     <!-- New Feature Form -->
     <div class="bg-white p-6 rounded-lg shadow space-y-4">
-      <h2 class="text-2xl font-bold">Add New Feature</h2>
+      <h2 class="text-2xl font-bold">Add New Characteristic</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
@@ -129,7 +129,7 @@
 
         <!-- New Uploads -->
         <div>
-          <label class="block text-sm font-medium">Main Image</label>
+          <label class="block text-sm font-medium">Graphic</label>
           <input
             type="file"
             accept="image/*"
@@ -147,7 +147,7 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium">Image 1</label>
+          <label class="block text-sm font-medium">Image</label>
           <input
             type="file"
             accept="image/*"
@@ -170,7 +170,7 @@
         class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
         :disabled="loading"
       >
-        Add Feature
+        Add Characteristic
       </button>
     </div>
 

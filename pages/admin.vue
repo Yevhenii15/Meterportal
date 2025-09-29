@@ -41,10 +41,10 @@ const handleLogout = () => {
 
 const sections = [
   { key: "about", label: "About", icon: "📝", link: "/backend/about" },
-  { key: "characteristics", label: "Characteristics", icon: "⚙️", link: "/backend/characteristics" },
-  { key: "features", label: "Features", icon: "🌟", link: "/backend/features" },
+  { key: "features", label: "Features", icon: "🌟", link: "/backend/characteristics" },
+  { key: "characteristics", label: "Characteristics", icon: "⚙️", link: "/backend/features" },
   { key: "statistics", label: "Statistics", icon: "📊", link: "/backend/statistics" },
-  { key: "feedback", label: "Feedback", icon: "📞", link: "/backend/feedback" },
+  { key: "feedback", label: "Feedback", icon: "💬", link: "/backend/feedback" },
   { key: "intro", label: "Intro Info", icon: "💡", link: "/backend/intro" },
 ];
 </script>
