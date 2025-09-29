@@ -42,7 +42,7 @@ onMounted(() => {
 
 <template>
   <section class="admin-feedback">
-
+    <div class="feedback-container">
     <div v-if="loading">Loading feedbacks...</div>
     <div v-if="error" class="error">{{ error }}</div>
 
@@ -86,26 +86,25 @@ onMounted(() => {
         </tr>
       </tbody>
     </table>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .admin-feedback {
-  padding: 30px;
-  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  width: 100%;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.admin-feedback h2 {
-  color: #f0532d;
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .feedback-table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -142,6 +141,7 @@ onMounted(() => {
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .response-form button:hover {
@@ -155,9 +155,11 @@ onMounted(() => {
   border-radius: 5px;
   padding: 6px 12px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .delete-btn:hover {
   background: #c62828;
 }
 </style>
+

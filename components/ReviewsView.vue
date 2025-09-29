@@ -59,6 +59,7 @@ const submitFeedback = async () => {
     <div class="container">
       <h2 class="section-title">Trusted by Consumers and Utilities</h2>
 
+      
       <!-- Feedback Form -->
       <div class="feedback-form">
         <h3>Leave Your Feedback</h3>
@@ -89,7 +90,6 @@ const submitFeedback = async () => {
 
       <div v-if="loading">Loading feedback...</div>
       <div v-if="error" class="error">{{ error }}</div>
-
       <!-- Horizontal scrollable reviews -->
       <div
         v-else
@@ -132,88 +132,6 @@ const submitFeedback = async () => {
 </template>
 
 <style scoped>
-.feedback-form {
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: #3a3a3a; /* light background for inputs */
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 100%; /* full width */
-}
-
-.feedback-form h3 {
-  color: #f0532d;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.feedback-form input,
-.feedback-form select,
-.feedback-form textarea {
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: 1rem;
-  color: #000; /* black text */
-  background: #fff; /* white background */
-  outline: none;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
-}
-
-.feedback-form input:focus,
-.feedback-form select:focus,
-.feedback-form textarea:focus {
-  border-color: #f0532d;
-  box-shadow: 0 0 8px rgba(240, 83, 45, 0.5);
-}
-
-.feedback-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.feedback-form button {
-  padding: 12px 20px;
-  background: #f0532d;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  width: 100%; /* full width button */
-}
-
-.feedback-form button:hover:not(:disabled) {
-  background: #d84220;
-  transform: translateY(-2px);
-}
-
-.feedback-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.rating {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.rating label {
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.rating input {
-  margin-right: 5px;
-}
 .reviews {
   background: #1d1d1d;
   color: #fff;
@@ -226,6 +144,97 @@ const submitFeedback = async () => {
   margin-bottom: 40px;
 }
 
+/* --- Feedback Form --- */
+.feedback-form {
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #2a2a2a;
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.feedback-form h3 {
+  color: #f0532d;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: #1d1d1d;
+  color: #fff;
+  font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: #aaa;
+}
+
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: #f0532d;
+  box-shadow: 0 0 8px rgba(240, 83, 45, 0.6);
+  outline: none;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.feedback-form button {
+  padding: 14px;
+  background: linear-gradient(135deg, #f0532d, #ff7e29);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.feedback-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #e91e63, #ff7e29);
+  opacity: 0.95;
+}
+
+.feedback-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.rating {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.rating label {
+  cursor: pointer;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.rating input {
+  margin-right: 6px;
+}
+
+/* --- Horizontal Reviews & Progress Bar (original styles) --- */
 .reviews-scroll {
   display: flex;
   gap: 20px;
@@ -235,7 +244,7 @@ const submitFeedback = async () => {
 }
 
 .review-card {
-  flex: 0 0 30%; /* show 3 cards on desktop */
+  flex: 0 0 30%;
   background: #3a3a3a;
   border-radius: 25px;
   padding: 20px;
@@ -249,7 +258,7 @@ const submitFeedback = async () => {
   border-radius: 12px 60px 60px 12px;
   padding: 15px 20px;
   margin-bottom: 20px;
-  width: 80%; /* only cover 60% of card width */
+  width: 80%;
 }
 
 .review-header h3 {
@@ -284,7 +293,6 @@ const submitFeedback = async () => {
   margin-bottom: 12px;
 }
 
-/* Quote with vertical line */
 .quote-wrapper {
   border-left: 3px solid #f0532d;
   padding-left: 12px;
@@ -297,7 +305,6 @@ const submitFeedback = async () => {
   margin: 0;
 }
 
-/* Progress bar */
 .progress-bar {
   height: 4px;
   background: #444;
@@ -311,6 +318,7 @@ const submitFeedback = async () => {
   background: linear-gradient(90deg, #e91e63, #ff9800);
   transition: width 0.2s ease;
 }
+
 .admin-response {
   margin-top: 12px;
   font-size: 0.9rem;
@@ -318,16 +326,17 @@ const submitFeedback = async () => {
   border-left: 3px solid #ffd180;
   padding-left: 10px;
 }
-/* Responsive */
+
 @media (max-width: 1000px) {
   .review-card {
-    flex: 0 0 45%; /* 2 cards on tablets */
+    flex: 0 0 45%;
   }
 }
 
 @media (max-width: 600px) {
   .review-card {
-    flex: 0 0 90%; /* 1 card on mobile */
+    flex: 0 0 90%;
   }
 }
 </style>
+
