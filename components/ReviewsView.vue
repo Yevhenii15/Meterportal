@@ -234,7 +234,7 @@ const submitFeedback = async () => {
   margin-right: 6px;
 }
 
-/* --- Horizontal Reviews & Progress Bar (original styles) --- */
+/* --- Horizontal Reviews & Progress Bar --- */
 .reviews-scroll {
   display: flex;
   gap: 20px;
@@ -327,16 +327,69 @@ const submitFeedback = async () => {
   padding-left: 10px;
 }
 
+/* --- Responsive Tweaks Only --- */
 @media (max-width: 1000px) {
+
+  .section-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
   .review-card {
     flex: 0 0 45%;
+    
+  }
+
+  .feedback-form {
+    padding: 25px 20px;
+    gap: 14px;
+  }
+
+  .feedback-form h3 {
+    font-size: 1.4rem;
+  }
+
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .feedback-form button {
+    font-size: 0.95rem;
+    padding: 12px;
   }
 }
 
 @media (max-width: 600px) {
+   .section-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
   .review-card {
     flex: 0 0 90%;
   }
+
+  .feedback-form {
+    padding: 20px 15px;
+    gap: 12px;
+  }
+
+  .feedback-form h3 {
+    font-size: 1.2rem;
+  }
+
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .feedback-form button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }
 </style>
+
 

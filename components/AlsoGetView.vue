@@ -71,17 +71,19 @@ const closeFeature = () => {
 };
 </script>
 
+
 <style scoped>
 .features {
   background: #1d1d1d; 
   color: #fff;
-  padding: 0 0 100px 0;
+  
 }
 
 .section-title {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 40px;
+  line-height: 1.3;
 }
 
 .features-scroll {
@@ -168,19 +170,6 @@ const closeFeature = () => {
   color: #fff; 
 }
 
-/* Responsive */
-@media (max-width: 1000px) {
-  .feature-card {
-    flex: 0 0 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .feature-card {
-    flex: 0 0 90%;
-  }
-}
-
 /* Modal */
 .modal-overlay {
   position: fixed;
@@ -190,6 +179,7 @@ const closeFeature = () => {
   justify-content: center;
   align-items: center;
   z-index: 50;
+  padding: 20px;
 }
 
 .modal-content {
@@ -200,7 +190,7 @@ const closeFeature = () => {
   position: relative;
   text-align: center;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 85vh;
 }
 
 .close-btn {
@@ -229,7 +219,7 @@ const closeFeature = () => {
   max-width: 50%;
 }
 
-.modal-heading{
+.modal-heading {
   border-left: 4px solid #ee1063;
   padding-left: 10px;
   margin-bottom: 10px;
@@ -237,24 +227,91 @@ const closeFeature = () => {
   font-size: x-large;
 }
 
-.modal-subtitle{
+.modal-subtitle {
   padding-left: 10px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: large;
 }
 
-
 .modal-images {
   display: flex;
   gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .modal-images img {
-  width: 800px;
+  width: 100%;
+  max-width: 700px;
   border-radius: 15px;
   padding: 5px;
 }
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 1000px) {
+  .feature-card {
+    flex: 0 0 45%;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 70px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .feature-card {
+    flex: 0 0 70%;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-heading {
+    font-size: 1.3rem;
+  }
+
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .feature-card {
+    flex: 0 0 90%;
+  }
+
+  .modal-images img {
+    max-width: 100%;
+  }
+}
 </style>
+
+
 
 

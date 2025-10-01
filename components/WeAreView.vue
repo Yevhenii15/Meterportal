@@ -34,13 +34,13 @@ onMounted(() => {
 </script>
 
 
+
 <style scoped>
 .weare {
   padding-top: 100px;
-    padding-bottom: 100px;
-  background: #1d1d1d; /* same as hero bg */
+  padding-bottom: 100px;
+  background: #1d1d1d; /* matches hero background */
   color: #fff;
-  
 }
 
 .section-title {
@@ -48,17 +48,19 @@ onMounted(() => {
   font-weight: 700;
   text-align: start;
   margin-bottom: 2.5rem;
+  line-height: 1.3;
 }
 
 .content-box {
-  background: #0b0b0bd7; /* darker background for contrast */
+  background: #0b0b0bd7; /* darker box for contrast */
   padding: 40px;
   border-radius: 20px;
-  
   margin: 0 auto;
   line-height: 1.7;
   font-size: 1.1rem;
   color: #ddd;
+  
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .content-box p {
@@ -68,4 +70,52 @@ onMounted(() => {
 .content-box p:last-child {
   margin-bottom: 0;
 }
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .content-box {
+    padding: 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .weare {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .content-box {
+    padding: 25px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weare {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .content-box {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}
 </style>
+
+

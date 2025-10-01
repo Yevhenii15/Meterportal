@@ -52,10 +52,10 @@ onMounted(() => {
 
 .modal-content {
   background: #1d1d1d;
-  padding: 70px; /* even bigger padding */
+  padding: 70px;
   border-radius: 30px;
   width: 95%;
-  max-width: 1000px; /* wide modal */
+  max-width: 1000px;
   position: relative;
   text-align: left;
   overflow-y: auto;
@@ -68,7 +68,7 @@ onMounted(() => {
   flex-direction: column;
   gap: 35px;
   background: rgba(0, 0, 0, 0.45);
-  padding: 50px; /* larger inner padding */
+  padding: 50px;
   border-radius: 25px;
 }
 
@@ -77,7 +77,7 @@ onMounted(() => {
   padding-left: 15px;
   margin-bottom: 15px;
   font-weight: 600;
-  font-size: 2rem; /* larger heading */
+  font-size: 2rem;
 }
 
 .close-btn {
@@ -97,4 +97,54 @@ onMounted(() => {
   line-height: 1.8;
   color: #ccc;
 }
+
+/* --- Responsive Tweaks Only --- */
+@media (max-width: 900px) {
+  .modal-content {
+    padding: 50px;
+  }
+
+  .modal-body {
+    padding: 30px;
+    gap: 25px;
+  }
+
+  .modal-heading {
+    font-size: 1.6rem;
+  }
+
+  .close-btn {
+    font-size: 1.8rem;
+    top: 15px;
+    right: 20px;
+  }
+
+  .space-y-4 p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 30px;
+  }
+
+  .modal-body {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .modal-heading {
+    font-size: 1.4rem;
+  }
+
+  .close-btn {
+    font-size: 1.5rem;
+  }
+
+  .space-y-4 p {
+    font-size: 0.95rem;
+  }
+}
 </style>
+

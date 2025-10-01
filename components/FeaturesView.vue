@@ -91,18 +91,19 @@ const closeFeature = () => {
 
 
 
+
 <style scoped>
 .features-view {
   background: #1d1d1d;
   color: #fff;
-  padding: 0 0 100px 0;
-  
+  padding: 100px 0;
 }
 
 .section-title {
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 40px;
+  line-height: 1.3;
 }
 
 .screens-scroll {
@@ -117,7 +118,7 @@ const closeFeature = () => {
   flex: 0 0 22%; /* ~4.5 cards visible at once */
   position: relative;
   border-radius: 25px;
-  overflow: hidden; /* important so overlay follows rounded corners */
+  overflow: hidden;
   scroll-snap-align: start;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -139,7 +140,7 @@ const closeFeature = () => {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.759);
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
   opacity: 0;
   display: flex;
@@ -149,8 +150,8 @@ const closeFeature = () => {
   padding: 20px;
   text-align: center;
   transition: opacity 0.3s ease;
-  border-radius: 45px; 
-  pointer-events: none; 
+  border-radius: 25px;
+  pointer-events: none;
 }
 
 .overlay h3 {
@@ -175,6 +176,8 @@ const closeFeature = () => {
   justify-content: center;
   align-items: center;
   gap: 25px;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .bottom-cta p {
@@ -205,35 +208,7 @@ const closeFeature = () => {
   justify-content: center;
   align-items: center;
   z-index: 50;
-}
-
-.modal-body {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  text-align: left;
-  background: rgba(0, 0, 0, 0.515);
-  padding: 30px;
-  border-radius: 15px;
-}
-
-.modal-text {
-  max-width: 50%;
-}
-
-.modal-heading{
-  border-left: 4px solid #ee1063;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: x-large;
-}
-
-.modal-subtitle{
-  padding-left: 10px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: large;
+  padding: 20px;
 }
 
 .modal-content {
@@ -259,12 +234,38 @@ const closeFeature = () => {
   cursor: pointer;
 }
 
+.modal-body {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.modal-text {
+  max-width: 50%;
+}
+
+.modal-heading {
+  border-left: 4px solid #ee1063;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+.modal-subtitle {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: large;
+}
+
 .modal-images {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
-  place-items: center;
+  flex-wrap: wrap;
 }
 
 .modal-images img {
@@ -272,21 +273,77 @@ const closeFeature = () => {
   border-radius: 15px;
   padding: 5px;
 }
-/* Responsive */
+
+/* --- Responsive Tweaks --- */
 @media (max-width: 1000px) {
   .screen-card {
-    flex: 0 0 40%; /* show 2 on tablets */
+    flex: 0 0 40%;
   }
 
-  .bottom-cta {
+  .modal-body {
     flex-direction: column;
-    gap: 18px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-text {
+    max-width: 100%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .features-view {
+    padding: 70px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
   .screen-card {
-    flex: 0 0 80%; /* show 1 on mobile */
+    flex: 0 0 60%;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-heading {
+    font-size: 1.3rem;
+  }
+
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+
+  .modal-images img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-view {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .screen-card {
+    flex: 0 0 80%;
+  }
+
+  .modal-images img {
+    width: 150px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
+

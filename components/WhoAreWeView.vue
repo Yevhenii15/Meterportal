@@ -39,12 +39,12 @@ onMounted(() => {
 .who-are-we {
   background: #1d1d1d;
   color: #fff;
-  padding: 0 0 100px 0;
+  padding: 100px 0;
 }
 
 .who-are-we__grid {
   display: grid;
-  grid-template-columns: 1fr 0.8fr; /* right side a bit bigger */
+  grid-template-columns: 1fr 0.8fr;
   gap: 40px;
   align-items: center;
 }
@@ -66,8 +66,8 @@ onMounted(() => {
 .who-are-we__profile {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical centering */
-  align-items: center; /* horizontal centering */
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -101,15 +101,40 @@ onMounted(() => {
   color: #fff;
 }
 
-/* Responsive */
+/* Loading and error messages */
+.error {
+  margin-top: 20px;
+  color: #ff6b6b;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* --- Responsive Tweaks Only --- */
 @media (max-width: 900px) {
   .who-are-we__grid {
     grid-template-columns: 1fr;
     text-align: center;
+    
   }
 
   .who-are-we__profile {
     margin-top: 40px;
   }
 }
+
+@media (max-width: 480px) {
+  .profile-name {
+    font-size: 2.5rem;
+  }
+
+  .profile-role {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 14px 35px;
+    font-size: 1rem;
+  }
+}
 </style>
+

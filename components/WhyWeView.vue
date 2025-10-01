@@ -48,4 +48,19 @@ onMounted(() => {
   display: block;
   margin: 0 auto;
 }
+
+/* --- Responsive Tweaks Only --- */
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
 </style>

@@ -77,4 +77,52 @@
 .logo-wrapper img {
   height: 70px;
 }
+
+/* --- Responsive --- */
+@media (max-width: 1000px) {
+  .headline {
+    font-size: 2.4rem;
+  }
+
+  .subtext {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .store-links {
+    gap: 40px;
+  }
+
+  .store-links img {
+    height: 70px;
+  }
+
+  .logo-wrapper img {
+    height: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headline {
+    font-size: 2rem;
+  }
+
+  .subtext {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .store-links {
+    gap: 25px;
+  }
+
+  .store-links img {
+    height: 60px;
+  }
+
+  .logo-wrapper img {
+    height: 50px;
+  }
+}
 </style>
+

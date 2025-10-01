@@ -36,9 +36,10 @@ onMounted(() => {
 </script>
 
 
+
 <style scoped>
 .statistics {
-  padding: 0 0 100px 0;
+  padding: 100px 0;
   background: #1d1d1d;
   color: #fff;
 }
@@ -48,6 +49,7 @@ onMounted(() => {
   font-weight: 700;
   text-align: start;
   margin-bottom: 3rem;
+  line-height: 1.3;
 }
 
 .stats-grid {
@@ -100,4 +102,81 @@ onMounted(() => {
   font-weight: 400;
   color: #fff;         
 }
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .stat-card {
+    padding: 40px 20px;
+    min-height: 230px;
+  }
+
+  .icon img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics {
+    padding: 70px 0;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-card {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+
+  .icon img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .stat-card {
+    padding: 25px 15px;
+    min-height: 200px;
+  }
+
+  .icon img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .stat-card p {
+    font-size: 0.95rem;
+  }
+}
 </style>
+
+
