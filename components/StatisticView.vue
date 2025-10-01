@@ -23,7 +23,6 @@
   </section>
 </template>
 
-
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useStatistics } from "@/composables/useStatistics";
@@ -34,8 +33,6 @@ onMounted(() => {
   getStatistics();
 });
 </script>
-
-
 
 <style scoped>
 .statistics {
@@ -59,7 +56,7 @@ onMounted(() => {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #F0532D, #91063A);
+  background: linear-gradient(135deg, #f0532d, #91063a);
   border-radius: 20px;
   padding: 50px 20px;
   display: flex;
@@ -91,16 +88,16 @@ onMounted(() => {
 }
 
 .stat-card h3 {
-  font-size: 2.2rem;   
-  font-weight: 900;   
+  font-size: 2.2rem;
+  font-weight: 900;
   margin-bottom: 10px;
-  color: #fff;         
+  color: #fff;
 }
 
 .stat-card p {
   font-size: 1rem;
   font-weight: 400;
-  color: #fff;         
+  color: #fff;
 }
 
 /* --- Responsive Tweaks --- */
@@ -126,7 +123,10 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .statistics {
-    padding: 70px 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -152,7 +152,10 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .statistics {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -178,5 +181,3 @@ onMounted(() => {
   }
 }
 </style>
-
-

@@ -10,7 +10,8 @@
 
         <!-- Optional fallback -->
         <p v-else>
-          Måleportal is not only a smart app for consumers – it’s a complete platform that supports both households and utilities.
+          Måleportal is not only a smart app for consumers – it’s a complete
+          platform that supports both households and utilities.
         </p>
       </div>
 
@@ -20,7 +21,6 @@
     </div>
   </section>
 </template>
-
 
 <script setup lang="ts">
 import { onMounted } from "vue";
@@ -32,8 +32,6 @@ onMounted(() => {
   getIntroInfo();
 });
 </script>
-
-
 
 <style scoped>
 .weare {
@@ -59,7 +57,7 @@ onMounted(() => {
   line-height: 1.7;
   font-size: 1.1rem;
   color: #ddd;
-  
+
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -87,6 +85,8 @@ onMounted(() => {
   .weare {
     padding-top: 70px;
     padding-bottom: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -103,6 +103,8 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .weare {
+    padding-left: 30px;
+    padding-right: 30px;
     padding-top: 50px;
     padding-bottom: 50px;
   }
@@ -117,5 +119,3 @@ onMounted(() => {
   }
 }
 </style>
-
-

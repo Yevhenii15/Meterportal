@@ -1,10 +1,8 @@
 <template>
   <section class="download-section">
-    <div class="container text-center"> 
+    <div class="container text-center">
       <h2 class="headline">Ready to take charge of your energy?</h2>
-      <p class="subtext">
-        Download now and get consumption info fast and easy
-      </p>
+      <p class="subtext">Download now and get consumption info fast and easy</p>
 
       <div class="store-links">
         <!-- Google Play -->
@@ -21,7 +19,6 @@
           <a href="https://www.meterportal.eu/en">
             <img src="../public/img/verticalLogo.png" alt="Måleportal" />
           </a>
-
         </div>
 
         <!-- App Store -->
@@ -30,7 +27,10 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../public/img/appStore.png" alt="Download on the App Store" />
+          <img
+            src="../public/img/appStore.png"
+            alt="Download on the App Store"
+          />
         </a>
       </div>
     </div>
@@ -46,13 +46,13 @@
 }
 
 .headline {
-  font-size: 2.8rem; 
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
 }
 
 .subtext {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   margin-bottom: 3rem;
   color: #e0e0e0;
 }
@@ -61,12 +61,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px; 
+  gap: 60px;
   flex-wrap: wrap;
 }
 
 .store-links img {
-  height: 80px; 
+  height: 80px;
   transition: transform 0.3s ease;
 }
 
@@ -80,6 +80,10 @@
 
 /* --- Responsive --- */
 @media (max-width: 1000px) {
+  .download-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .headline {
     font-size: 2.4rem;
   }
@@ -103,6 +107,12 @@
 }
 
 @media (max-width: 600px) {
+  .download-section {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
   .headline {
     font-size: 2rem;
   }
@@ -125,4 +135,3 @@
   }
 }
 </style>
-

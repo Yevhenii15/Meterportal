@@ -15,7 +15,6 @@
   </section>
 </template>
 
-
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useAbout } from "@/composables/useAbout";
@@ -26,7 +25,6 @@ onMounted(() => {
   getAbout();
 });
 </script>
-
 
 <style scoped>
 .why-we {
@@ -51,6 +49,10 @@ onMounted(() => {
 
 /* --- Responsive Tweaks Only --- */
 @media (max-width: 900px) {
+  .why-we {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .section-title {
     font-size: 2rem;
     text-align: center;
@@ -59,6 +61,12 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
+  .why-we {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .section-title {
     font-size: 1.6rem;
   }

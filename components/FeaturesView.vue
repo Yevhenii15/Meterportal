@@ -3,7 +3,8 @@ import { ref, onMounted } from "vue";
 import { useCharacteristics } from "@/composables/useCharacteristics";
 import ContactModal from "./ContactModal.vue";
 
-const { characteristics, getCharacteristics, loading, error } = useCharacteristics();
+const { characteristics, getCharacteristics, loading, error } =
+  useCharacteristics();
 const activeFeature = ref(null);
 const showContact = ref(false);
 
@@ -46,7 +47,11 @@ const closeFeature = () => {
       </div>
 
       <!-- Modal -->
-      <div v-if="activeFeature" class="modal-overlay" @click.self="closeFeature">
+      <div
+        v-if="activeFeature"
+        class="modal-overlay"
+        @click.self="closeFeature"
+      >
         <div class="modal-content">
           <button class="close-btn" @click="closeFeature">✕</button>
 
@@ -80,17 +85,12 @@ const closeFeature = () => {
       <!-- Bottom text + button inline -->
       <div class="bottom-cta">
         <p>Get expired, don’t wait contact us right now</p>
-        <button class="cta-btn" @click="showContact = true">
-               CONTACT US
-            </button>
+        <button class="cta-btn" @click="showContact = true">CONTACT US</button>
       </div>
     </div>
   </section>
   <ContactModal v-model:isOpen="showContact" />
 </template>
-
-
-
 
 <style scoped>
 .features-view {
@@ -219,7 +219,7 @@ const closeFeature = () => {
   position: relative;
   text-align: center;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 75vh;
 }
 
 .close-btn {
@@ -254,7 +254,6 @@ const closeFeature = () => {
 }
 
 .modal-subtitle {
-  padding-left: 10px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: large;
@@ -269,7 +268,7 @@ const closeFeature = () => {
 }
 
 .modal-images img {
-  width: 270px;
+  width: 250px;
   border-radius: 15px;
   padding: 5px;
 }
@@ -283,7 +282,6 @@ const closeFeature = () => {
   .modal-body {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .modal-text {
@@ -293,7 +291,10 @@ const closeFeature = () => {
 
 @media (max-width: 768px) {
   .features-view {
-    padding: 70px 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -307,7 +308,7 @@ const closeFeature = () => {
   }
 
   .modal-content {
-    padding: 20px;
+    padding: 30px;
   }
 
   .modal-heading {
@@ -319,13 +320,19 @@ const closeFeature = () => {
   }
 
   .modal-images img {
-    width: 200px;
+    width: 163px;
+  }
+  .modal-text p {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .features-view {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -337,13 +344,15 @@ const closeFeature = () => {
   }
 
   .modal-images img {
-    width: 150px;
+    width: 140px;
   }
 
   .cta-btn {
     width: 100%;
     text-align: center;
   }
+  .modal-text p {
+    font-size: 0.7rem;
+  }
 }
 </style>
-

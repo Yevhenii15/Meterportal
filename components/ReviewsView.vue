@@ -59,7 +59,6 @@ const submitFeedback = async () => {
     <div class="container">
       <h2 class="section-title">Trusted by Consumers and Utilities</h2>
 
-      
       <!-- Feedback Form -->
       <div class="feedback-form">
         <h3>Leave Your Feedback</h3>
@@ -329,14 +328,16 @@ const submitFeedback = async () => {
 
 /* --- Responsive Tweaks Only --- */
 @media (max-width: 1000px) {
-
+  .reviews {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .section-title {
     font-size: 1.8rem;
     text-align: center;
   }
   .review-card {
     flex: 0 0 45%;
-    
   }
 
   .feedback-form {
@@ -361,11 +362,17 @@ const submitFeedback = async () => {
 }
 
 @media (max-width: 600px) {
-   .section-title {
+  .reviews {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  .section-title {
     font-size: 1.8rem;
     text-align: center;
   }
-  
+
   .review-card {
     flex: 0 0 90%;
   }
@@ -391,5 +398,3 @@ const submitFeedback = async () => {
   }
 }
 </style>
-
-

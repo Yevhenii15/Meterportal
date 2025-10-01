@@ -25,7 +25,9 @@ onMounted(() => {
       <div class="who-are-we__profile" v-if="about">
         <h3 class="profile-name">{{ about.NameOfCDO }}</h3>
         <p class="profile-role">{{ about.PositionOfCDO }}</p>
-        <button class="cta-button" @click="showContact = true">CALL US NOW</button>
+        <button class="cta-button" @click="showContact = true">
+          CALL US NOW
+        </button>
       </div>
     </div>
 
@@ -111,10 +113,13 @@ onMounted(() => {
 
 /* --- Responsive Tweaks Only --- */
 @media (max-width: 900px) {
+  .who-are-we {
+    padding: 70px 0;
+  }
   .who-are-we__grid {
+    padding-left: 30px;
+    padding-right: 30px;
     grid-template-columns: 1fr;
-    text-align: center;
-    
   }
 
   .who-are-we__profile {
@@ -123,6 +128,13 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
+  .who-are-we {
+    padding: 50px 0;
+  }
+  .who-are-we__grid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .profile-name {
     font-size: 2.5rem;
   }
@@ -137,4 +149,3 @@ onMounted(() => {
   }
 }
 </style>
-

@@ -71,12 +71,10 @@ const closeFeature = () => {
 };
 </script>
 
-
 <style scoped>
 .features {
-  background: #1d1d1d; 
+  background: #1d1d1d;
   color: #fff;
-  
 }
 
 .section-title {
@@ -96,7 +94,7 @@ const closeFeature = () => {
 
 .feature-card {
   flex: 0 0 30%;
-  background: #111; 
+  background: #111;
   border-radius: 25px;
   padding: 20px;
   scroll-snap-align: start;
@@ -108,12 +106,12 @@ const closeFeature = () => {
 }
 
 .feature-card:hover {
-  transform: translateY(-8px); 
+  transform: translateY(-8px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
 }
 
 .feature-inner {
-  background: #2a2a2a; 
+  background: #2a2a2a;
   border-radius: 20px;
   padding: 40px 20px;
   width: 100%;
@@ -129,7 +127,7 @@ const closeFeature = () => {
 }
 
 .feature-card:hover .feature-inner {
-  background: #333; 
+  background: #333;
 }
 
 .icon img {
@@ -137,11 +135,12 @@ const closeFeature = () => {
   width: auto;
   margin-bottom: 20px;
   transition: transform 0.3s ease;
-  filter: brightness(0) saturate(100%) invert(44%) sepia(95%) saturate(4119%) hue-rotate(2deg) brightness(97%) contrast(105%);
+  filter: brightness(0) saturate(100%) invert(44%) sepia(95%) saturate(4119%)
+    hue-rotate(2deg) brightness(97%) contrast(105%);
 }
 
 .feature-card:hover .icon img {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .feature-inner h3 {
@@ -153,7 +152,7 @@ const closeFeature = () => {
 }
 
 .feature-card:hover .feature-inner h3 {
-  color: #F0532D; 
+  color: #f0532d;
 }
 
 .desc {
@@ -167,7 +166,7 @@ const closeFeature = () => {
 }
 
 .feature-card:hover .desc {
-  color: #fff; 
+  color: #fff;
 }
 
 /* Modal */
@@ -190,7 +189,7 @@ const closeFeature = () => {
   position: relative;
   text-align: center;
   overflow-y: auto;
-  max-height: 85vh;
+  max-height: 75vh;
 }
 
 .close-btn {
@@ -228,7 +227,6 @@ const closeFeature = () => {
 }
 
 .modal-subtitle {
-  padding-left: 10px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: large;
@@ -257,17 +255,22 @@ const closeFeature = () => {
   .modal-body {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .modal-text {
     max-width: 100%;
   }
+  .modal-text p {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 768px) {
   .features {
-    padding: 70px 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -291,11 +294,17 @@ const closeFeature = () => {
   .modal-subtitle {
     font-size: 1rem;
   }
+  .modal-text p {
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 480px) {
   .features {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .section-title {
@@ -309,9 +318,8 @@ const closeFeature = () => {
   .modal-images img {
     max-width: 100%;
   }
+  .modal-text p {
+    font-size: 0.7rem;
+  }
 }
 </style>
-
-
-
-

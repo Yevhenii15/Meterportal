@@ -13,10 +13,7 @@
       <!-- Right: Nav Items -->
       <div class="nav-items">
         <!-- UTILITY button: link dynamic, logo static -->
-        <a
-          :href="introInfo?.UtilityLink || '#'"
-          class="btn utility"
-        >
+        <a :href="introInfo?.UtilityLink || '#'" class="btn utility">
           <span class="dot blue">
             <img src="/img/blueLogo.png" alt="Utility Logo" />
           </span>
@@ -24,10 +21,7 @@
         </a>
 
         <!-- CONSUMER button: link dynamic, logo static -->
-        <a
-          :href="introInfo?.ConsumerLink || '#'"
-          class="btn consumer"
-        >
+        <a :href="introInfo?.ConsumerLink || '#'" class="btn consumer">
           <span class="dot pink">
             <img src="/img/redLogo.png" alt="Consumer Logo" />
           </span>
@@ -47,8 +41,6 @@
   </nav>
 </template>
 
-
-
 <script setup>
 import { onMounted } from "vue";
 import { useIntroInfo } from "@/composables/useIntroInfo";
@@ -58,45 +50,34 @@ const { introInfo, getIntroInfo, loading, error } = useIntroInfo();
 onMounted(() => {
   getIntroInfo();
 });
-
 </script>
 
 <style scoped>
 /* Navbar container */
 .navbar {
-  position: fixed;   
-  top: 0;           
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;     
-  background: #1D1D1D;
+  z-index: 1000;
+  background: #1d1d1d;
   color: #fff;
 }
-
-
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 0; /* vertical padding only, horizontal handled by container */
-}
-
-
-/* Logo */
-
+} /* Logo */
 .logo-img {
-  height: 45px; 
+  height: 45px;
   display: block;
-}
-
-/* Right side nav items */
+} /* Right side nav items */
 .nav-items {
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-/* Buttons */
+} /* Buttons */
 .btn {
   display: flex;
   align-items: center;
@@ -113,32 +94,73 @@ onMounted(() => {
   cursor: pointer;
   transition: 0.3s;
 }
-
 .btn:hover {
   background: #fff;
-    color: #000;
-}
-
-/* Button icons */
+  color: #000;
+} /* Button icons */
 .btn-icon {
   width: 16px;
   height: 16px;
   display: inline-block;
-}
-
-/* Adjust dot if needed */
+} /* Adjust dot if needed */
 .dot {
   width: 11px;
   height: 11px;
   display: flex;
-}
-
-/* Language button */
-
-
+} /* Language button */
 .lang-icon {
   width: 30px;
   height: 30px;
   display: block;
+}
+
+/* -------------------- Responsive -------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 1rem; /* reduce slightly */
+  }
+
+  .logo-img {
+    height: 38px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .nav-items {
+    gap: 12px;
+  }
+
+  .lang-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .logo-img {
+    height: 32px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 5px 12px;
+    gap: 5px;
+  }
+
+  .nav-items {
+    gap: 8px;
+  }
+
+  .lang-icon {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+  }
 }
 </style>
