@@ -36,7 +36,7 @@ onMounted(() => {
 
 <style scoped>
 .statistics {
-  padding: 100px 0;
+  padding: 0 0 100px 0;
   background: #1d1d1d;
   color: #fff;
 }
@@ -107,7 +107,9 @@ onMounted(() => {
   }
 
   .stat-card {
-    padding: 40px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
     min-height: 230px;
   }
 
@@ -123,7 +125,6 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .statistics {
-    padding-top: 70px;
     padding-bottom: 70px;
     padding-left: 30px;
     padding-right: 30px;
@@ -152,7 +153,6 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .statistics {
-    padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 30px;
     padding-right: 30px;

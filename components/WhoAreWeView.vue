@@ -114,7 +114,8 @@ onMounted(() => {
 /* --- Responsive Tweaks Only --- */
 @media (max-width: 900px) {
   .who-are-we {
-    padding: 70px 0;
+    padding-bottom: 70px;
+    padding-top: 0px;
   }
   .who-are-we__grid {
     padding-left: 30px;
@@ -129,7 +130,7 @@ onMounted(() => {
 
 @media (max-width: 480px) {
   .who-are-we {
-    padding: 50px 0;
+    padding-bottom: 50px;
   }
   .who-are-we__grid {
     padding-left: 30px;

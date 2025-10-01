@@ -96,7 +96,7 @@ const closeFeature = () => {
 .features-view {
   background: #1d1d1d;
   color: #fff;
-  padding: 100px 0;
+  padding: 0 0 100px 0;
 }
 
 .section-title {
@@ -291,7 +291,6 @@ const closeFeature = () => {
 
 @media (max-width: 768px) {
   .features-view {
-    padding-top: 70px;
     padding-bottom: 70px;
     padding-left: 30px;
     padding-right: 30px;
@@ -329,7 +328,6 @@ const closeFeature = () => {
 
 @media (max-width: 480px) {
   .features-view {
-    padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 30px;
     padding-right: 30px;

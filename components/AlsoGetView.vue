@@ -267,7 +267,6 @@ const closeFeature = () => {
 
 @media (max-width: 768px) {
   .features {
-    padding-top: 70px;
     padding-bottom: 70px;
     padding-left: 30px;
     padding-right: 30px;
@@ -301,7 +300,6 @@ const closeFeature = () => {
 
 @media (max-width: 480px) {
   .features {
-    padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 30px;
     padding-right: 30px;
